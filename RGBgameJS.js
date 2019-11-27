@@ -31,14 +31,15 @@ function getRandomRgb() {
 
 
 /////////////////////////////////////Restart event/////////////////////////////////////
+
 //New color btn was clicked func
 function newColorBtnClicked(){
 
-  var randomNum = Math.floor(Math.random()*6);
+   randomNum = Math.floor(Math.random()*6);
 
   for(var i = 0;i<cubes.length;i++){
     if(i===randomNum){
-      var randColor = getRandomRgb();
+       randColor = getRandomRgb();
       
       cubes[i].style.background=randColor;
       rgbStr.textContent ="Guess Color: "+ randColor;
