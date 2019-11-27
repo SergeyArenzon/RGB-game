@@ -1,0 +1,63 @@
+body{
+    background-color: rgb(26, 18, 18) ;
+
+}
+
+#rgbStr{
+
+    color: blanchedalmond;
+    align-content: center;
+    text-align: center;
+    
+}
+
+
+#sixCubes{
+   max-width: 600px;
+   margin: 0 auto;
+   
+}
+
+.cube{
+    background-color:red;
+    width: 30%;
+    float: left;
+    padding-bottom: 30%;
+    margin: 1.66%;
+    border: 0px solid rgb(26, 18, 18);
+  
+    border-radius: 25px;
+
+}
+
+#topBar{
+    background-color: rgb(105, 105, 243);
+    height: 100px;
+}
+
+#status{
+    color: rgb(0, 0, 0);
+
+}
+
+#statusDiv{
+    height: 18.84px;
+    text-align: center;
+
+}
+
+#newColorBtn{
+    height: 100%;
+    
+
+}
+
+#botBar{
+    height: 30px;
+    text-align: center;
+    background: whitesmoke;
+
+
+
+}
+
