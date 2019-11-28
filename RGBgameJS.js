@@ -4,7 +4,11 @@ var rgbStr = document.querySelector("#rgbStr");
 var statusMsg = document.querySelector("#status");
 var topBar = document.querySelector("#topBar");
 var newColorBtn = document.querySelector("#newColorBtn")
+var easyBtn = document.querySelector("#easyBtn");
+var hardBtn = document.querySelector("#hardBtn");
 
+
+var gameOnHard = true;
 
 //Random num from 0-5 generator
  var randomNum = Math.floor(Math.random()*6);
@@ -14,6 +18,26 @@ function allCubesOneColor(color, cubes){
   for(var i = 0; i<cubes.length;++i){
     cubes[i].style.background = color;
 
+  }
+
+}
+
+function gameOnEasy(){
+  gameOnHard = false;
+  topBar.style.background = "#6969F3";
+  randomNum = Math.floor(Math.random()*3);
+  
+  for(var i = 0;i<cubes.length;i++){
+    if(i===randomNum){
+      randColor = getRandomRgb();     
+      cubes[i].style.background=randColor;
+      rgbStr.textContent ="Guess Color: "+ randColor;
+      
+    }
+    else if(i>2){
+      cubes[i].style.background = "#1A1212"; 
+    } 
+    else cubes[i].style.background = getRandomRgb()
   }
 
 }
@@ -34,20 +58,26 @@ function getRandomRgb() {
 
 //New color btn was clicked func
 function newColorBtnClicked(){
+  newColorBtn.textContent = "New Color"
+  statusMsg.textContent = "";
+  if(gameOnHard){
+    
+    topBar.style.background = "#6969F3";
+    randomNum = Math.floor(Math.random()*6);
 
-   randomNum = Math.floor(Math.random()*6);
-
-  for(var i = 0;i<cubes.length;i++){
-    if(i===randomNum){
-       randColor = getRandomRgb();
-      
-      cubes[i].style.background=randColor;
-      rgbStr.textContent ="Guess Color: "+ randColor;
-      
-    } 
-    else cubes[i].style.background = getRandomRgb()
-  }
-console.log("randcolor inside fun: "+randColor)
+    for(var i = 0;i<cubes.length;i++){
+      if(i===randomNum){
+        randColor = getRandomRgb();
+        
+        cubes[i].style.background=randColor;
+        rgbStr.textContent ="Guess Color: "+ randColor;
+        
+      } 
+      else cubes[i].style.background = getRandomRgb()
+    }
+  }else gameOnEasy();
+  
+    
 }
 
 //New color btn was clicked
@@ -75,13 +105,13 @@ for(var i = 0;i<cubes.length;i++){
 for(var i = 0; i<cubes.length; i++){
  
   cubes[i].addEventListener("click",function(){
-    console.log("randcolor in inlistener: "+randColor)
+    
     //Correct scenario  
     if(this.style.background === randColor) {
       allCubesOneColor(randColor,cubes);
       statusMsg.textContent = "Correct!";
       topBar.style.background = randColor;
-      
+      newColorBtn.textContent = "Start again"
     }
     //Wrong scenario
     else{
@@ -94,6 +124,43 @@ for(var i = 0; i<cubes.length; i++){
     })
 }
 
+//New color btn switching
+newColorBtn.addEventListener("mouseover",function(){
+  newColorBtn.style.background = "#6969F3";
+})
+//New color btn switching
+newColorBtn.addEventListener("mouseout",function(){
+  newColorBtn.style.backgroundColor = 'rgb(' + 245 + ',' + 245 + ',' + 245 + ')';
+})
+
+//easy mod btn clicked
+easyBtn.addEventListener("click",function(){
+  if(gameOnHard){
+    statusMsg.textContent = "";
+    gameOnEasy();
+    easyBtn.classList.add("clickedBtn");
+    hardBtn.classList.remove("clickedBtn");
+  }
+  
+})
+  
+
+
+//hard mod btn clicked
+hardBtn.addEventListener("click",function(){
+  if(!gameOnHard){
+    gameOnHard = true;
+    easyBtn.classList.remove("clickedBtn");
+    hardBtn.classList.add("clickedBtn");
+    newColorBtnClicked();
+  }
+  
+})
 
 
 
+
+
+
+
+    
