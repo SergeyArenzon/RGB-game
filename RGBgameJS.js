@@ -58,6 +58,7 @@ function getRandomRgb() {
 
 //New color btn was clicked func
 function newColorBtnClicked(){
+
   newColorBtn.textContent = "New Color"
   statusMsg.textContent = "";
   if(gameOnHard){
@@ -112,12 +113,15 @@ for(var i = 0; i<cubes.length; i++){
       statusMsg.textContent = "Correct!";
       topBar.style.background = randColor;
       newColorBtn.textContent = "Start again"
+     
     }
     //Wrong scenario
     else{
       
       this.style.background = "#1A1212";
+      
       statusMsg.textContent = "Wrong! Try Again";
+      
       
      
       }
@@ -127,19 +131,25 @@ for(var i = 0; i<cubes.length; i++){
 //New color btn switching
 newColorBtn.addEventListener("mouseover",function(){
   newColorBtn.style.background = "#6969F3";
+  newColorBtn.style.color = "#f5f5f5"
+  
 })
 //New color btn switching
 newColorBtn.addEventListener("mouseout",function(){
   newColorBtn.style.backgroundColor = 'rgb(' + 245 + ',' + 245 + ',' + 245 + ')';
+  newColorBtn.style.color = "#6969F3"
 })
 
 //easy mod btn clicked
 easyBtn.addEventListener("click",function(){
   if(gameOnHard){
+    gameOnHard = false
     statusMsg.textContent = "";
     gameOnEasy();
-    easyBtn.classList.add("clickedBtn");
     hardBtn.classList.remove("clickedBtn");
+    hardBtn.classList.add("unClickedBtn")
+    easyBtn.classList.remove("unClickedBtn")
+    easyBtn.classList.add("clickedBtn");
   }
   
 })
@@ -151,16 +161,34 @@ hardBtn.addEventListener("click",function(){
   if(!gameOnHard){
     gameOnHard = true;
     easyBtn.classList.remove("clickedBtn");
+    easyBtn.classList.add("unClickedBtn")
+    hardBtn.classList.remove("unClickedBtn")
     hardBtn.classList.add("clickedBtn");
     newColorBtnClicked();
   }
   
 })
 
+//Hover over unclicked btn
+
+hardBtn.addEventListener("mouseover",function(){
+  if (!gameOnHard){
+    hardBtn.classList.add("almostClicked")    
+  }  
+})
+
+hardBtn.addEventListener("mouseout",function(){
+  hardBtn.classList.remove("almostClicked") 
+})
 
 
+easyBtn.addEventListener("mouseover",function(){
+  if (gameOnHard){
+    easyBtn.classList.add("almostClicked")   
+  }  
+})
 
-
-
-
-    
+easyBtn.addEventListener("mouseout",function(){
+  
+  easyBtn.classList.remove("almostClicked")  
+})

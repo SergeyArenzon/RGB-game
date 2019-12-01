@@ -5,27 +5,35 @@
 
 body{
     background-color: rgb(26, 18, 18) ;
+    font-family: 'EB Garamond', serif;
+    text-transform: uppercase;
     margin: 0 !important;
     padding: 0 !important;
-    font-family: 'EB Garamond', serif;
-
-    text-transform: uppercase;
     
     
 }
 
-h2{
+.theGreatest{
     font-weight: normal;
     color: white;
+    margin-top: 0 ;
+    margin-bottom: 0;
+    text-align: center; 
+    font-weight: bold; 
+    align-content: center;
+    text-align: center; 
+
+
 
 }
 
 #rgbStr{
-    margin: 0 !important;
     color: blanchedalmond;
     align-content: center;
     text-align: center;   
-    font-weight: bold;
+    font-weight: 700;
+    margin: 0;
+    font-size: 40px;
      
 }
 
@@ -47,12 +55,17 @@ h2{
 
 #topBar{
     background-color: rgb(105, 105, 243);
-    height: 100px;
+    height: 150px;
+    
 }
 
 #status{
-    color: rgb(0, 0, 0);
-    
+    color:  rgb(105, 105, 243);
+    width: 19%;
+    display: inline-block;
+    align-content: center;
+    text-align: center;
+    font-size: 1.2rem;
 }
 
 #statusDiv{
@@ -64,39 +77,60 @@ h2{
     height: 100%;
     background: whitesmoke ;
     border: 0;
-    padding: 0;
     outline: none !important;
-    float: left;
+    padding: 0;
+    color: rgb(105, 105, 243);
+    padding: 11px;
+    font-weight: bold;
+    
     
 }
 
 #botBar{
-    height: 30px;
+    height: 35px;
     text-align: center;
     background: whitesmoke;
-    margin-bottom: 20px;
+    margin-bottom: 20px;  
 }
 
 .clickedBtn{
-    background: blue;
+    background:  rgb(105, 105, 243);
     outline: none !important;
+    height: 100%;
+    color: whitesmoke;
+    font-weight: bolder;
+    font-size: 1.1rem;
+    
+}
+.unClickedBtn{
+    background:  whitesmoke;
+    outline: none !important;
+    height: 100%;
+    color: rgb(105, 105, 243);
+    font-weight: unset;
+    font-size: 1rem;
+
+
 }
 
-#easyBtn{
-    height: 100%;
+#easyBtn{  
     outline: none !important;
     border: 0;
-    padding: 0;
-    float: right;
-
+    width: 100px;
 }
 #hardBtn{
-    
-    height: 100%;
-    
     border: 0;
-    padding: 0;
     outline: none !important;
-    float: right;
+    width: 100px;
+}
+
+button{
+    letter-spacing: 1px; 
+    text-transform: uppercase;
+}
+
+.almostClicked{
+    background: rgb(143, 143, 240);
+
 
 }
