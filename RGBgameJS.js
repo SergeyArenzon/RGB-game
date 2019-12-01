@@ -120,7 +120,7 @@ for(var i = 0; i<cubes.length; i++){
       
       this.style.background = "#1A1212";
       
-      statusMsg.textContent = "Wrong! Try Again";
+      statusMsg.textContent = "Try Again";
       
       
      
